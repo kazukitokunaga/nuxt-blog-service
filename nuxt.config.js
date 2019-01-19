@@ -38,6 +38,11 @@ module.exports = {
     '@/plugins/element-ui'
   ],
 
+  router: {
+    middleware: [
+      'auth-cookie'
+    ]
+  },
   /*
   ** Nuxt.js modules
   */

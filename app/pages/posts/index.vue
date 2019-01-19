@@ -9,20 +9,20 @@
         style="width: 100%"
         class="table"
       >
-        <el-table-colum
+        <el-table-column
           prop="title"
           label="タイトル">
-        </el-table-colum>
-        <el-table-colum
+        </el-table-column>
+        <el-table-column
           prop="user.id"
           label="投稿者"
           width="180">
-        </el-table-colum>
-        <el-table-colum
+        </el-table-column>
+        <el-table-column
           prop="created_at"
           label="投稿日時"
           width="240">
-        </el-table-colum>
+        </el-table-column>
       </el-table>
     </el-card>
   </section>
