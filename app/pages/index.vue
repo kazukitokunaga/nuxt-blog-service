@@ -22,7 +22,7 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
-import Cookie from 'universal-cookie'
+import Cookies from 'universal-cookie'
 
 export default {
   asyncData({ redirect, store }) {
@@ -39,7 +39,8 @@ export default {
   computed: {
     buttonText() {
       return this.isCreateMode ? '新規登録' : 'ログイン'
-    }
+    },
+    ...mapGetters(['user'])
   },
   methods: {
     async handleClickSubmit() {
