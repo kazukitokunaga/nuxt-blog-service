@@ -27,5 +27,17 @@
     "babel-preset-vue-app": "^2.0.0",
     "jest": "^23.6.0",
     "nodemon": "^1.11.0"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.js$": "babel-jest"
+    }
+  },
+  "babel": {
+    "env": {
+      "test": {
+        "presets": ["vue-app"]
+      }
+    }
   }
 }
