@@ -8,7 +8,6 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    // title: pkg.name,
     title: "SomethingNewBlog",
     meta: [
       { charset: 'utf-8' },
@@ -41,7 +40,7 @@ module.exports = {
 
   router: {
     middleware: [
-      'auth-cookie'
+      'auth-cookie',
     ]
   },
   /*
@@ -49,7 +48,8 @@ module.exports = {
   */
   modules: [
     // Doc: https://github.com/nuxt-community/axios-module#usage
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    'cookie-universal-nuxt',
   ],
   /*
   ** Axios module configuration
