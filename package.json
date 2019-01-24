@@ -13,12 +13,13 @@
     "test:coverage": "jest --coverage"
   },
   "dependencies": {
-    "@nuxtjs/axios": "^5.0.0",
+    "@nuxtjs/auth": "^4.5.3",
+    "@nuxtjs/axios": "^5.3.6",
     "cross-env": "^5.2.0",
     "element-ui": "^2.4.6",
     "lodash.clonedeep": "^4.5.0",
     "moment": "^2.23.0",
-    "nuxt": "^2.0.0",
+    "nuxt": "^2.3.4",
     "universal-cookie": "^3.0.7"
   },
   "devDependencies": {
@@ -42,8 +43,14 @@
     "^~/(.*)$": "<rootDir>/app/$1",
     "^~~/(.*)$": "<rootDir>/$1"
   },
-  "moduleFileExtensions": ["js", "json", "vue"],
-  "collectCoverageFrom": ["app/**/*.{js, vue}"],
+  "moduleFileExtensions": [
+    "js",
+    "json",
+    "vue"
+  ],
+  "collectCoverageFrom": [
+    "app/**/*.{js, vue}"
+  ],
   "babel": {
     "env": {
       "test": {
