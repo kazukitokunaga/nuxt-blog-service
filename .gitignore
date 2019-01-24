@@ -81,4 +81,4 @@ dist
 .idea
 
 #firebase
-plugins/firebase.js
+app/plugins/firebase.js
