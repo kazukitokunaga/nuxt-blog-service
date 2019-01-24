@@ -8,7 +8,7 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: pkg.name,
+    title: "SomethingNewBlog",
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -40,7 +40,7 @@ module.exports = {
 
   router: {
     middleware: [
-      'auth-cookie'
+      'auth-cookie',
     ]
   },
   /*
@@ -48,7 +48,8 @@ module.exports = {
   */
   modules: [
     // Doc: https://github.com/nuxt-community/axios-module#usage
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    'cookie-universal-nuxt',
   ],
   /*
   ** Axios module configuration
@@ -66,7 +67,6 @@ module.exports = {
     ** You can extend webpack config here
     */
     extend(config, ctx) {
-      
     }
   }
 }
