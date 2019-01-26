@@ -8,7 +8,7 @@
     </nuxt-link>
   </section>
   <section>
-    <nuxt-link to="/posts/new">
+    <nuxt-link to="/posts/">
       記事投稿画面へ
     </nuxt-link>
   </section>
