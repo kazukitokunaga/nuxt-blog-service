@@ -26,7 +26,7 @@ export default {
   fetch () {
     // `fetch` メソッドはページの描画前にストアを満たすために使用される
   },
-  mounted: function() {
+  beforeCreate() {
     firebase.auth().onAuthStateChanged(user => {
       console.log('user:', user)
       if (user) {
