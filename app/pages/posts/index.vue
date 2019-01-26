@@ -37,7 +37,6 @@ export default {
   },
   beforeCreate() {
     firebase.auth().onAuthStateChanged(user => {
-      console.log('user:', user)
       if (user) {
         try {
           this.isLogin = true
@@ -64,18 +63,21 @@ export default {
     })
   },
   computed: {
-    ...mapGetters(['user'])
   },
   methods: {
     async publish(){
+      const userName = {
+        id: this.userData.displayName
+      }
       const payload = {
-        user: this.user,
+        user: userName,
         ...this.formData,
       }
-      await this.publishPost({ payload })
-      this.$router.push('/posts')
+      await this.register({ ...userName })
+      .then(await this.publishPost({ payload }))
+      this.$router.push('/')
     },
-    ...mapActions('users', ['updateUser']),
+    ...mapActions(['register']),
     ...mapActions('posts', ['publishPost'])
   }
 }
