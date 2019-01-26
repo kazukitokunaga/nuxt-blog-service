@@ -1,6 +1,6 @@
 <template>
   <section class="container posts-page">
-    <el-card style="flex: 1" v-if="isLogin">
+    <el-card style="flex: 1">
       <div slot="header" class="clearfix">
         <el-input placeholder="タイトルを入力" v-model="formData.title" />
       </div>
@@ -14,7 +14,6 @@
         </el-button>
       </div>
     </el-card>
-    <nuxt-link to="/login" v-else>ログイン画面へ</nuxt-link>
   </section>
 </template>
 
@@ -60,6 +59,7 @@ export default {
       } else {
         this.isLogin = false
         this.userData = null
+        this.$router.push('/login/')
       }
     })
   },
