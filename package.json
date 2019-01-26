@@ -10,8 +10,7 @@
     "start": "nuxt start",
     "generate": "nuxt generate",
     "test": "jest",
-    "test:coverage": "jest --coverage",
-    "heroku-postbuild": "yarn run build"
+    "test:coverage": "jest --coverage"
   },
   "dependencies": {
     "@nuxtjs/auth": "^4.5.3",
@@ -20,6 +19,7 @@
     "cross-env": "^5.2.0",
     "element-ui": "^2.4.6",
     "firebase": "^5.8.0",
+    "firebase-tools": "^6.3.0",
     "lodash.clonedeep": "^4.5.0",
     "moment": "^2.23.0",
     "nuxt": "^2.3.4",
