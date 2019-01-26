@@ -26,12 +26,27 @@ export default {
   fetch () {
     // `fetch` メソッドはページの描画前にストアを満たすために使用される
   },
-  mounted: function() {
+  beforeCreate() {
     firebase.auth().onAuthStateChanged(user => {
       console.log('user:', user)
       if (user) {
-        this.isLogin = true
-        this.userData = user
+        try {
+          this.isLogin = true
+          this.userData = user
+          this.$notify({
+            title: 'ログイン成功',
+            message: `${this.userData.displayName}としてログインしました`,
+            position: 'bottom-right',
+            duration: 1000
+          })
+        } catch(e) {
+          this.$notify.error({
+            title: 'ログイン失敗',
+            message: '不正なユーザーIDです',
+            position: 'bottom-right',
+            duration: 1000
+          })
+        }
       } else {
         this.isLogin = false
         this.userData = null

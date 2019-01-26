@@ -2,9 +2,16 @@
 <div id="mypage">
   <span>こんにちは, {{ user.displayName }}さん</span>
   <button @click="logout">ログアウト</button>
-  <el-card style="flex: 1">
-  </el-card>
-
+  <section>
+    <nuxt-link to="/">
+      &lt; 投稿一覧へ戻る
+    </nuxt-link>
+  </section>
+  <section>
+    <nuxt-link to="/posts/">
+      記事投稿画面へ
+    </nuxt-link>
+  </section>
 </div>
 </template>
 
