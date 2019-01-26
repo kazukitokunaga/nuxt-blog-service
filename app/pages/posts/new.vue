@@ -1,6 +1,6 @@
 <template>
   <section class="container posts-page">
-    <el-card style="flex: 1">
+    <el-card style="flex: 1" v-if="isLogin">
       <div slot="header" class="clearfix">
         <el-input placeholder="タイトルを入力" v-model="formData.title" />
       </div>
@@ -14,23 +14,54 @@
         </el-button>
       </div>
     </el-card>
+    <nuxt-link to="/login" v-else>ログイン画面へ</nuxt-link>
   </section>
 </template>
 
 <script>
+import firebase from '@/plugins/firebase'
 import { mapGetters, mapActions } from 'vuex'
 
 export default {
-  asyncData({ redirect, store }) {
-    if (!store.getters['user']) {
-      redirect('/')
-    }
+  asyncData({ context, redirect, store }) {
     return {
+      isLogin:false,
+      userData:null,
       formData: {
         title: '',
         body: ''
       }
     }
+  },
+  fetch () {
+    // `fetch` メソッドはページの描画前にストアを満たすために使用される
+  },
+  mounted: function() {
+    firebase.auth().onAuthStateChanged(user => {
+      console.log('user:', user)
+      if (user) {
+        try {
+          this.isLogin = true
+          this.userData = user
+          this.$notify({
+            title: 'ログイン成功',
+            message: `${this.userData.displayName}としてログインしました`,
+            position: 'bottom-right',
+            duration: 1000
+          })
+        } catch(e) {
+          this.$notify.error({
+            title: 'ログイン失敗',
+            message: '不正なユーザーIDです',
+            position: 'bottom-right',
+            duration: 1000
+          })
+        }
+      } else {
+        this.isLogin = false
+        this.userData = null
+      }
+    })
   },
   computed: {
     ...mapGetters(['user'])
