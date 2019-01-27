@@ -6,7 +6,7 @@
           <h2>{{ post.title }}</h2>
           <small>by {{ post.user.id }}</small>
         </div>
-        <p>{{ post.body }}</p>
+        <vue-markdown :source="source"></vue-markdown>
         <no-ssr>
           <p class="text-right">
             <el-button :disabled="!isLoggedIn" type="warning" v-if="isLiked" @click="unlike" round>
@@ -40,8 +40,12 @@
 import moment from '~/plugins/moment'
 import { mapGetters, mapActions } from 'vuex'
 import cloneDeep from 'lodash.clonedeep'
+import VueMarkdown from 'vue-markdown'
 
 export default {
+  components: {
+    VueMarkdown
+  },
   async asyncData({ store, route }){
     if (store.getters['posts/posts'].find(p => p.id === route.params.id)) {
       return
@@ -49,6 +53,9 @@ export default {
     await store.dispatch('posts/fetchPosts')
   },
   computed: {
+    source() {
+      return this.post.body
+    },
     post() {
       return this.posts.find(p => p.id === this.$route.params.id)
     },
