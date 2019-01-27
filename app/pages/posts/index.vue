@@ -5,7 +5,7 @@
         <el-input placeholder="タイトルを入力" v-model="formData.title" />
       </div>
       <div>
-        <el-input placeholder="本文を入力......" type="textarea" rows="15" v-model="source" />
+        <el-input placeholder="本文を入力......" type="textarea" rows="15" v-model="formData.body" />
       </div>
       <div class="preview">
         <vue-markdown :source="source"></vue-markdown>
@@ -39,11 +39,6 @@ export default {
       }
     }
   },
-  data() {
-    return{
-      source: ''
-    }
-  },
   fetch () {
     // `fetch` メソッドはページの描画前にストアを満たすために使用される
   },
@@ -75,6 +70,9 @@ export default {
     })
   },
   computed: {
+      source(){
+        return this.formData.body
+      }
   },
   methods: {
     async publish(){
