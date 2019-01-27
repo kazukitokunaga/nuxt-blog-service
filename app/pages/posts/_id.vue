@@ -18,7 +18,7 @@
               <span>{{ post.likes.length }}</span>
             </el-button>
           <p>
-            <nuxt-link to="/posts">
+            <nuxt-link to="/">
               &lt; 投稿一覧へ戻る
             </nuxt-link>
           </p>
