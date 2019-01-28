@@ -7,6 +7,9 @@
       <div>
         <el-input placeholder="本文を入力......" type="textarea" rows="15" v-model="formData.body" />
       </div>
+      <div class="preview">
+        <vue-markdown :source="source"></vue-markdown>
+      </div>
       <div class="text-right" style="margin-top: 16px;">
         <el-button type="primary" @click="publish" round>
           <span class="el-icon-upload2" />
@@ -20,8 +23,12 @@
 <script>
 import firebase from '@/plugins/firebase'
 import { mapGetters, mapActions } from 'vuex'
+import VueMarkdown from 'vue-markdown'
 
 export default {
+  components: {
+    VueMarkdown
+  },
   asyncData({ context, redirect, store }) {
     return {
       isLogin:false,
@@ -63,6 +70,9 @@ export default {
     })
   },
   computed: {
+      source(){
+        return this.formData.body
+      }
   },
   methods: {
     async publish(){
