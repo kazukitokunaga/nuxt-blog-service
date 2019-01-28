@@ -8,20 +8,9 @@
         </div>
         <vue-markdown :source="source"></vue-markdown>
         <no-ssr>
-          <p class="text-right">
-            <el-button :disabled="!isLoggedIn" type="warning" v-if="isLiked" @click="unlike" round>
-              <span class="el-icon-star-on" />
-              <span>{{ post.likes.length }}</span>
-            </el-button>
-            <el-button :disabled="!isLoggedIn" type="warning" v-else @click="like" round>
-              <span class="el-icon-star-off" />
-              <span>{{ post.likes.length }}</span>
-            </el-button>
-          <p>
-            <nuxt-link to="/">
-              &lt; 投稿一覧へ戻る
-            </nuxt-link>
-          </p>
+          <nuxt-link to="/">
+            &lt; 投稿一覧へ戻る
+          </nuxt-link>
         </no-ssr>
         <p class="text-right">
           {{ post.created_at | time }}
@@ -59,30 +48,10 @@ export default {
     post() {
       return this.posts.find(p => p.id === this.$route.params.id)
     },
-    isLiked(){
-      if (!this.user) return false
-      return this.post.likes.find(l => l.user_id === this.user.id)
-    },
     ...mapGetters(['user', 'isLoggedIn']),
     ...mapGetters('posts', ['posts'])
   },
   methods: {
-    like() {
-      if (!this.isLoggedIn) {
-        return
-      }
-      const likePayload = { user: this.user, post: this.post }
-      this.addLikeToPost(cloneDeep(likePayload))
-      this.addLikeLogToUser(cloneDeep(likePayload))
-    },
-    unlike() {
-      if (!this.isLoggedIn) {
-        return
-      }
-      // TODO::いいね取り消し処理を実装する
-    },
-    ...mapActions(['addLikeLogToUser']),
-    ...mapActions('posts', ['addLikeToPost'])
   },
   filters: {
     time(val) {

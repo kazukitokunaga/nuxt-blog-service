@@ -26,13 +26,4 @@ export const actions = {
     if (!user.id) throw new Error('Invalid user')
     commit('setUser', { user })
   },
-  async addLikeLogToUser({ commit }, { user, post }) {
-    user.likes.push({
-      created_at: moment().format(),
-      user_id: user.id,
-      post_id: post.id
-    })
-    const newUser = await this.$axios.$put(`/users/${user.id}.json`, user)
-    commit('setUser', { user: newUser })
-  },
 }
