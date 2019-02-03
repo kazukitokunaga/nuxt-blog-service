@@ -2,6 +2,9 @@
   "name": "nuxt-blog-service",
   "version": "1.0.0",
   "description": "My laudable Nuxt.js project",
+  "engines": {
+    "node": "11.6.0"
+  },
   "author": "kazukitokunaga",
   "private": true,
   "scripts": {
