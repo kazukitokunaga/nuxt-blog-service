@@ -80,9 +80,5 @@ dist
 # IDE
 .idea
 
-#firebase
-.firebase
-.firebaserc
-
 #google-cloud-sdk
 google-cloud-sdk/
