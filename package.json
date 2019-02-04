@@ -16,7 +16,7 @@
     "generate": "nuxt generate",
     "test": "jest",
     "test:coverage": "jest --coverage",
-    "heroku-postbuild": "npm run build"
+    "heroku-postbuild": "yarn run build"
   },
   "dependencies": {
     "@nuxtjs/auth": "^4.5.3",
