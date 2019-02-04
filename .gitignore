@@ -80,5 +80,5 @@ dist
 # IDE
 .idea
 
-#firebase
-app/plugins/firebase.js
+#google-cloud-sdk
+google-cloud-sdk/

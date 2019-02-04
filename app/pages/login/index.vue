@@ -10,12 +10,12 @@
 <script>
 import firebase from '@/plugins/firebase'
 import Home from '~/components/Home.vue';
-import Mypage from '~/components/Mypage.vue';
+import MyPage from '~/components/MyPage.vue';
 
 export default {
   components: {
     Home,
-    Mypage
+    MyPage
   },
   asyncData({ context ,redirect, store }) {
     return {
