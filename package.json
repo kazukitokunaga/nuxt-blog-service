@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "My laudable Nuxt.js project",
   "engines": {
-    "node": "11.6.0"
+    "node": "11.6.0",
+    "npm" : "6.5.0",
+    "yarn": "1.12.3"
   },
   "author": "kazukitokunaga",
   "private": true,
