@@ -9,13 +9,13 @@
 
 <script>
 import firebase from '@/plugins/firebase'
-import home from '~/components/home.vue';
-import mypage from '~/components/mypage.vue';
+import Home from '~/components/Home.vue';
+import Mypage from '~/components/Mypage.vue';
 
 export default {
   components: {
-    home,
-    mypage
+    Home,
+    Mypage
   },
   asyncData({ context ,redirect, store }) {
     return {
