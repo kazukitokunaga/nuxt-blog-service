@@ -5,7 +5,7 @@
   "engines": {
     "node": "11.6.0",
     "npm" : "6.5.0",
-    "yarn": "1.0.0"
+    "yarn": "1.12.3"
   },
   "author": "kazukitokunaga",
   "private": true,
@@ -16,7 +16,7 @@
     "generate": "nuxt generate",
     "test": "jest",
     "test:coverage": "jest --coverage",
-    "heroku-postbuild": "npm run build"
+    "heroku-postbuild": "yarn run dev"
   },
   "dependencies": {
     "@nuxtjs/auth": "^4.5.3",
