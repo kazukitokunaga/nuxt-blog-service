@@ -82,8 +82,3 @@ dist
 
 #google-cloud-sdk
 google-cloud-sdk/
-
-# firebase
-app/plugins/firebase.js
-.firebase
-.firebaserc
