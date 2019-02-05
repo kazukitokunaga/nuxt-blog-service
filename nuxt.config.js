@@ -62,7 +62,6 @@ module.exports = {
     baseURL: 'https://nuxt-blog-service-fddd2.firebaseio.com/'
   },
   proxy: [
-    'https://nuxt-blog-service-fddd2.firebaseio.com/'
   ],
   env: {
     API_KEY: process.env.API_KEY,
