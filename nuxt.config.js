@@ -52,6 +52,7 @@ module.exports = {
     '@nuxtjs/axios',
     'cookie-universal-nuxt',
     '@nuxtjs/dotenv',
+    '@nuxtjs/proxy',
   ],
   /*
   ** Axios module configuration
@@ -60,7 +61,9 @@ module.exports = {
     // See https://github.com/nuxt-community/axios-module#options
     baseURL: 'https://nuxt-blog-service-fddd2.firebaseio.com/'
   },
-
+  proxy: [
+    'https://nuxt-blog-service-fddd2.firebaseio.com/'
+  ],
   env: {
     API_KEY: process.env.API_KEY,
     AUTH_DOMAIN: process.env.AUTH_DOMAIN,
