@@ -3,12 +3,12 @@
   <span>こんにちは, {{ user.displayName }}さん</span>
   <button @click="logout">ログアウト</button>
   <section>
-    <nuxt-link to="/">
+    <nuxt-link to="posts/">
       &lt; 投稿一覧へ戻る
     </nuxt-link>
   </section>
   <section>
-    <nuxt-link to="/posts/">
+    <nuxt-link to="/posts/addPost">
       記事投稿画面へ
     </nuxt-link>
   </section>
