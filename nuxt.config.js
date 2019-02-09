@@ -1,4 +1,5 @@
 const pkg = require('./package')
+require('dotenv').config()
 
 module.exports = {
   mode: 'universal',
@@ -35,7 +36,8 @@ module.exports = {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    '@/plugins/element-ui'
+    '@/plugins/element-ui',
+    { src: "~/plugins/aos", ssr: false },
   ],
 
   router: {
@@ -50,13 +52,22 @@ module.exports = {
     // Doc: https://github.com/nuxt-community/axios-module#usage
     '@nuxtjs/axios',
     'cookie-universal-nuxt',
+    '@nuxtjs/dotenv',
   ],
   /*
   ** Axios module configuration
   */
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
-    baseURL: 'https://nuxt-blog-service-fddd2.firebaseio.com/'
+    baseURL: process.env.BASE_URL
+  },
+  env: {
+    API_KEY: process.env.API_KEY,
+    AUTH_DOMAIN: process.env.AUTH_DOMAIN,
+    DATABASE_URL: process.env.DATABASE_URL,
+    PROJECT_ID: process.env.PROJECT_ID,
+    STRAGE_BUCKET: process.env.STRAGE_BUCKET,
+    MESSAGING_SENDER_ID: process.env.MESSAGING_SENDER_ID
   },
 
   /*

@@ -82,3 +82,6 @@ dist
 
 #google-cloud-sdk
 google-cloud-sdk/
+
+#.env
+.env

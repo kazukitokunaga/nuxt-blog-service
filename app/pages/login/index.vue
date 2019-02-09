@@ -2,7 +2,7 @@
   <section class="container">
     <div class="links">
       <Home v-if="!isLogin"></Home>
-      <Mypage v-if="isLogin" :user="userData"></Mypage>
+      <MyPage v-if="isLogin" :user="userData"></MyPage>
     </div>
 </section>
 </template>

@@ -1,101 +1,61 @@
 <template>
   <section class="container posts-page">
-    <el-card style="flex: 1">
+    <el-card>
       <div slot="header" class="clearfix">
-        <el-input placeholder="タイトルを入力" v-model="formData.title" />
+        <span>新着投稿</span>
       </div>
-      <div>
-        <el-input placeholder="本文を入力......" type="textarea" rows="15" v-model="formData.body" />
-      </div>
-      <div class="preview">
-        <vue-markdown :source="source"></vue-markdown>
-      </div>
-      <div class="text-right" style="margin-top: 16px;">
-        <el-button type="primary" @click="publish" round>
-          <span class="el-icon-upload2" />
-          <span>Publish</span>
-        </el-button>
-      </div>
+      <el-table
+        :data="showPosts"
+        style="width: 100%"
+        @row-click="handleClick"
+        class="table"
+      >
+        <el-table-column
+          prop="title"
+          label="タイトル">
+        </el-table-column>
+        <el-table-column
+          prop="user.id"
+          label="投稿者"
+          width="180">
+        </el-table-column>
+        <el-table-column
+          prop="created_at"
+          label="投稿日時"
+          width="240">
+        </el-table-column>
+      </el-table>
     </el-card>
   </section>
 </template>
 
 <script>
-import firebase from '@/plugins/firebase'
-import { mapGetters, mapActions } from 'vuex'
-import VueMarkdown from 'vue-markdown'
+import moment from '~/plugins/moment'
+import { mapGetters } from 'vuex'
 
 export default {
-  components: {
-    VueMarkdown
-  },
-  asyncData({ context, redirect, store }) {
-    return {
-      isLogin:false,
-      userData:null,
-      formData: {
-        title: '',
-        body: ''
-      }
-    }
-  },
-  fetch () {
-    // `fetch` メソッドはページの描画前にストアを満たすために使用される
-  },
-  beforeCreate() {
-    firebase.auth().onAuthStateChanged(user => {
-      if (user) {
-        try {
-          this.isLogin = true
-          this.userData = user
-          this.$notify({
-            title: 'ログイン成功',
-            message: `${this.userData.displayName}としてログインしました`,
-            position: 'bottom-right',
-            duration: 1000
-          })
-        } catch(e) {
-          this.$notify.error({
-            title: 'ログイン失敗',
-            message: '不正なユーザーIDです',
-            position: 'bottom-right',
-            duration: 1000
-          })
-        }
-      } else {
-        this.isLogin = false
-        this.userData = null
-        this.$router.push('/login/')
-      }
-    })
+  async asyncData({ store }) {
+    await store.dispatch('posts/fetchPosts')
   },
   computed: {
-      source(){
-        return this.formData.body
-      }
+    showPosts() {
+      return this.posts.map(post => {
+        post.created_at = moment(post.created_at).format('YYYY/MM/DD HH:mm:ss')
+        return post
+      })
+    },
+    ...mapGetters('posts', ['posts'])
   },
   methods: {
-    async publish(){
-      const userName = {
-        id: this.userData.displayName
-      }
-      const payload = {
-        user: userName,
-        ...this.formData,
-      }
-      await this.register({ ...userName })
-      .then(await this.publishPost({ payload }))
-      this.$router.push('/')
-    },
-    ...mapActions(['register']),
-    ...mapActions('posts', ['publishPost'])
+    handleClick(post) {
+      this.$router.push(`/posts/${post.id}`)
+    }
   }
 }
 </script>
 
 <style>
-.posts-page .el-table__row {
+.posts-page .el-table__row{
   cursor: pointer;
 }
 </style>
-
