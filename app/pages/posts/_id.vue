@@ -8,7 +8,7 @@
         </div>
         <vue-markdown :source="source"></vue-markdown>
         <no-ssr>
-          <nuxt-link to="/">
+          <nuxt-link to="/posts">
             &lt; 投稿一覧へ戻る
           </nuxt-link>
         </no-ssr>
@@ -16,11 +16,6 @@
           {{ post.created_at | time }}
         </p>
       </el-card>
-      <p>
-        <nuxt-link to="/posts">
-          &lt; 投稿一覧へ戻る
-        </nuxt-link>
-      </p>
     </div>
   </section>
 </template>
@@ -62,7 +57,6 @@ export default {
 </script>
 
 <style>
-.posts-page .el-table__row {
-  cursor: pointer;
-}
+@import "~/assets/index.css";
+@import "~/assets/posts.css";
 </style>

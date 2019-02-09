@@ -26,6 +26,11 @@
         </el-table-column>
       </el-table>
     </el-card>
+    <no-ssr>
+      <nuxt-link to="/">
+        &lt; Topページへ戻る
+      </nuxt-link>
+    </no-ssr>
   </section>
 </template>
 
@@ -55,7 +60,6 @@ export default {
 </script>
 
 <style>
-.posts-page .el-table__row{
-  cursor: pointer;
-}
+@import "~/assets/index.css";
+@import "~/assets/posts.css";
 </style>
