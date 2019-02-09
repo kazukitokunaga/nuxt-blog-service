@@ -26,6 +26,11 @@
         </el-table-column>
       </el-table>
     </el-card>
+    <no-ssr>
+      <nuxt-link to="/">
+        &lt; Topページへ戻る
+      </nuxt-link>
+    </no-ssr>
   </section>
 </template>
 

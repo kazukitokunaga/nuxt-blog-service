@@ -1,10 +1,8 @@
 <template>
   <div>
     <TheHeader />
-    <div class="wrapper">
     <nuxt class="container" />
     <TheFooter />
-    </div>
   </div>
 </template>
 

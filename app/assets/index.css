@@ -14,14 +14,39 @@ html{
 	display:block;
 	margin-top:40px;
 }
-#header{
-	color: #000;
+.logo{
+	width: 30%;
+	right: auto;
+	display: inline-block;
 }
+
+/* フッター */
+footer{
+	margin-top: 0px;
+	font-size:14px;
+	color: #000;
+	float:left;
+	text-align: center;
+	padding-top: 48px;
+	margin-left:auto;
+	margin-right:auto;
+	display: block;
+	width: 100%;
+	margin: auto;
+}
+footer .footer-copyright{
+	display: block;
+	width: 100%;
+	margin-bottom:25px;
+}
+
+/* リンク */
 a {
 	color: #000;
 	position:relative;
 	display: inline-block;
 	text-decoration: none;
+	padding-top: 40px;
 }
 a::after {
 	z-index:9997;
@@ -40,117 +65,6 @@ a:hover::after {
 	transform-origin: left top;
 	transform: scale(1, 1);
 }
-.logo{
-	width: 30%;
-	right: auto;
-	display: inline-block;
-}
-.siteinfo{
-	position: absolute;
-	width: 70%;
-	display:inline-block;
-}
-.table-ul {
-	display: table;
-	text-align: center;
-	width: 90%;
-	font-size: 14px;
-}
-.table-ul li {
-	display: table-cell;
-}
-.icon-label{
-	color: #000;
-	font-weight: 400;
-}
-nav li a:hover{
-	color: #51AFE1;
-}
-
-/* リンクボタン */
-.link{
-	margin-right: 30%;
-	text-align:right;
-	width:100%;
-	float:right;
-	text-decoration:none;
-	font-size: 18px;
-}
-.link-label{
-	color: #000;
-	font-weight: 400;
-}
-.service-link{
-	margin-top:30px;
-}
-.link-btn{
-	background-color: #1070AF;
-	color: #fff;
-	text-decoration: none;
-	min-width: 110px;
-	font-size: 18px;
-	border-radius: 35px;
-	display: inline-block;
-	padding: 0;
-	line-height: 1;
-	letter-spacing: inherit;
-	font-weight: 700;
-	transition: all .7s cubic-bezier(.23,1,.32,1);
-	-webkit-font-smoothing: antialiased
-}
-.link-btn:hover{
-	background-color: #51AFE1;
-}
-.link-btn>span{
-	padding: 26px 1em;
-	display: inline-flex;
-	justify-content: center;
-	align-items: center;
-	/*width: 100%;*/
-}
-
-/* フッター */
-footer{
-	margin-top: 0px;
-	font-size:14px;
-	color: #000;
-	float:left;
-	text-align: center;
-	margin-left:auto;
-	margin-right:auto;
-	background: #FDF9EF;
-	display: block;
-	width: 100%;
-	margin: auto;
-}
-footer .footer-logo{
-	display: block;
-	width: 100%;
-	margin-bottom: 25px;
-}
-footer .footer-copyright{
-	display: block;
-	width: 100%;
-	margin-bottom:25px;
-}
-
-/* Awesomeフォントの設定 */
-.fas{
-	margin-top:20px;
-	font-size: 100px;
-	color: #10B3D0;
-	float: right;
-}
-
-/* ボーダーライン */
-.h2-border{
-	margin-bottom:100px;
-	margin-left: auto;
-	margin-right: auto;
-	width: 100px;
-	height: 2px;
-	background: #000000;
-}
 
 /* トップページのデザイン */
 .fa-angle-double-up{
@@ -158,135 +72,36 @@ footer .footer-copyright{
  	bottom: 10px;
  	right: 10px;
 }
-div{
-	display: block;
-}
-section{
-	display:block;
-}
-.ourvision{
-	background: #FDF9EF;
-	padding-bottom: 150px;
-}
-.front-page-company{
+.front-page{
 	padding-top:200px;
 	padding-bottom: 150px;
 }
-.front-page-company-image{
+.-image{
 	background:
 		url("./image/logo1280.png") no-repeat center center;
 	background-size: 70% auto;
 	height: 240px;
 }
-.front-page-company-idea{
-	margin-top: 100px;
+.contents-area{
+	padding-bottom: 150px;
+	text-align: center;
 }
-.idea{
-	text-align:center;
-	font-weight: normal;
-	font-size: 20px;
-	line-height: 35px;
-	width:60%;
-	margin-left:auto;
-	margin-right:auto;
-}
-.front-page-service{
-	padding-top: 50px;
-	padding-bottom: 50px;
-	text-align:center;
-}
-.front-page-service-title{
+.-title{
 	margin-bottom:30px;
 	font-size: 20px;
-}
-.front-page-service-section{
-	display: inline-block;
-}
-.front-page-service-discription{
-	height: 300px;
-}
-.lead{
-	margin-left:50px;
-	font-size: 14px;
-	line-height: 29px;
-}
-.front-page-service-discription h3{
-	margin-left:50px;
-	font-weight: normal;
-	font-size: 20px;
-	line-height: 45px;
-}
-.company{
-	background: #FDF9EF;
-}
-.ourmember{
-	text-align: center;
 }
 .member{
 	display: inline-block;
 	vertical-align: middle;
 	margin: 3px;
 }
-.member-img img{
+.-img{
 	margin-top: 50px;
 	width: 220px;
 	height: 300px;
 	border-radius: 250px;
 	object-fit: cover;
 }
-.contact{
-	width:100%;
-}
-.front-page-companyprofile{
-	width:60%;
-	text-align:center;
-	padding-top: 50px;
-	margin-left: auto;
-	margin-right: auto;
-	padding-bottom: 300px;
-}
-.front-page-companyprofile-img{
-	width:30%;
-}
-.front-page-companyprofile-title{
-	font-size: 20px;
-	margin-bottom:30px;
-}
-.name{
-	text-align:left;
-	font-weight: bold;
-	font-size: 15px;
-	line-height: 25px;
-	margin-bottom: 10px;
-}
-.front-page-companyprofile-discription{
-	width:100%;
-}
-#front-page-companyprofile-1{
-	margin-top:100px;
-	margin-bottom:100px;
-}
-.front-page-companyprofile-1{
-	float:left;
-	width:50%;
-}
-.front-page-companyprofile-1 dl{
-	line-height: 40px;
-	text-align:left;
-}
-.front-page-companyprofile-1 dl dt{
-	clear: left;
-	float: left;
-	width: 20%;
-	font-size: 10px;
-}
-.map{
-	float:right;
-	width:45%;
-	padding-left:5%;
-}
-
-/* 会社概要ページ */
 .h2-section{
 	text-align:center;
 	padding-top:100px;
@@ -298,20 +113,13 @@ section{
 	margin-bottom:30px;
 	font-size: 20px;
 }
-.companyprofile{
-	width: 60%;
-	margin-left:auto;
-	margin-right:auto;
-}
-.companyprofile dl{
-	line-height: 40px;
-	text-align: left;
-}
-.companyprofile dl dt{
-	clear: left;
-	float: left;
-	width: 20%;
-	font-size: 10px;
+.h2-border{
+	margin-bottom:100px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 100px;
+	height: 2px;
+	background: #000000;
 }
 
 /* 1100px以上のデザイン */
