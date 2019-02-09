@@ -55,7 +55,6 @@ export default {
 </script>
 
 <style>
-.posts-page .el-table__row{
-  cursor: pointer;
-}
+@import "~/assets/index.css";
+@import "~/assets/posts.css";
 </style>
